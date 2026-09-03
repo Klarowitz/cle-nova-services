@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0d0f" />
+  <meta name="description" content="CLE Nova Services – Montage und Einbau genormter Baufertigteile, Gebäudereinigung, Hausmeisterservice, Außenanlagenpflege, Entrümpelung, Außenreinigung und Winterdienst." />
+  <title>CLE Nova Services | Dienstleistungen für Unternehmen & Immobilien</title>
+
+  <!-- ================================================================
+       CLE NOVA SERVICES – EINFACH BEARBEITEN
+       ---------------------------------------------------------------
+       1) Texte: direkt unten im HTML ändern.
+       2) Logo: Datei "logo-cle-nova.png" ersetzen (gleicher Dateiname).
+       3) Telefonnummer/E-Mail: nach "0152 58140844" bzw.
+          "robby.klarowitz@web.de" suchen und ersetzen.
+       4) Neue Leistung: eine <article class="service-card">...</article>
+          kopieren und Text ändern.
+       5) Farben: ganz oben im CSS unter :root ändern.
+       ================================================================ -->
+
+  <style>
+    :root{
+      --bg:#090b0d;
+      --bg-2:#0f1215;
+      --panel:#13171a;
+      --panel-2:#171c20;
+      --text:#f3f1eb;
+      --muted:#b8b6b0;
+      --gold:#d5a94f;
+      --gold-2:#f1d084;
+      --silver:#d9dde1;
+      --line:rgba(213,169,79,.28);
+      --line-soft:rgba(255,255,255,.08);
+      --shadow:0 18px 60px rgba(0,0,0,.38);
+      --radius:20px;
+      --max:1180px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Arial,Helvetica,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 78% 8%,rgba(213,169,79,.08),transparent 22%),
+        linear-gradient(180deg,#080a0c 0%,#0c0f12 55%,#080a0c 100%);
+      line-height:1.6;
+    }
+    body.menu-open{overflow:hidden}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    button,input,select,textarea{font:inherit}
+    .container{width:min(var(--max),92%);margin:auto}
+    .section{padding:84px 0}
+    .section-kicker{color:var(--gold-2);text-transform:uppercase;letter-spacing:.16em;font-size:.76rem;font-weight:800}
+    .section-title{font-size:clamp(2rem,4vw,3.2rem);line-height:1.08;margin:9px 0 14px;letter-spacing:-.03em}
+    .section-intro{color:var(--muted);max-width:720px;margin:0}
+
+    .topbar{
+      position:sticky;top:0;z-index:1000;
+      background:rgba(8,10,12,.92);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{min-height:86px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:12px;min-width:210px}
+    .brand img{width:148px;height:68px;object-fit:cover;object-position:center 68%;border-radius:8px}
+    .desktop-nav{display:flex;gap:30px;align-items:center;color:#ddd9d0;font-size:.9rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+    .desktop-nav a{position:relative;padding:32px 0 28px}
+    .desktop-nav a:after{content:"";position:absolute;left:0;right:100%;bottom:19px;height:2px;background:var(--gold);transition:.2s}
+    .desktop-nav a:hover:after{right:0}
+    .menu-btn{display:none;border:1px solid var(--line);background:#111417;color:white;border-radius:10px;width:46px;height:46px;font-size:1.3rem}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 20px;border-radius:10px;border:1px solid var(--line);font-weight:800;cursor:pointer;transition:.2s}
+    .btn-gold{background:linear-gradient(135deg,#b78934,#f1d084);color:#111;border-color:#f1d084;box-shadow:0 10px 30px rgba(213,169,79,.17)}
+    .btn-gold:hover{transform:translateY(-2px);filter:brightness(1.04)}
+    .btn-outline{background:rgba(255,255,255,.02);color:var(--text)}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold-2)}
+    .nav-cta{min-width:175px}
+
+    .hero{position:relative;overflow:hidden;padding:82px 0 72px;border-bottom:1px solid var(--line-soft)}
+    .hero:before{content:"";position:absolute;inset:0;background:
+      linear-gradient(90deg,rgba(6,8,10,.98) 0%,rgba(6,8,10,.92) 46%,rgba(6,8,10,.45) 100%),
+      radial-gradient(circle at 82% 42%,rgba(213,169,79,.18),transparent 25%);
+      pointer-events:none}
+    .hero:after{content:"";position:absolute;right:-110px;top:60px;width:560px;height:560px;border:1px solid rgba(213,169,79,.22);border-radius:50%;box-shadow:0 0 90px rgba(213,169,79,.08) inset;opacity:.7}
+    .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.06fr .94fr;align-items:center;gap:54px}
+    .hero h1{font-size:clamp(3rem,6vw,5.55rem);line-height:.98;letter-spacing:-.055em;margin:14px 0 24px;max-width:720px}
+    .hero h1 span{display:block;color:var(--gold-2)}
+    .lead{font-size:1.12rem;color:var(--muted);max-width:680px;margin:0 0 30px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .trust-row{display:flex;gap:26px;flex-wrap:wrap;margin-top:34px;color:#e5e1d8;font-size:.88rem}
+    .trust-item{display:flex;align-items:center;gap:9px}
+    .trust-icon{width:28px;height:28px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;color:var(--gold-2);font-weight:900}
+    .hero-visual{position:relative;min-height:470px;display:flex;align-items:center;justify-content:center}
+    .hero-logo-card{width:min(520px,100%);background:linear-gradient(145deg,rgba(24,28,31,.94),rgba(10,12,14,.96));border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);padding:24px;position:relative;overflow:hidden}
+    .hero-logo-card:before{content:"";position:absolute;inset:-35% 40% 55% -20%;background:radial-gradient(circle,rgba(241,208,132,.24),transparent 60%)}
+    .hero-logo-card img{position:relative;width:100%;border-radius:18px}
+    .hero-badge{position:absolute;right:-10px;bottom:20px;background:#0d1012;border:1px solid var(--line);border-radius:16px;padding:14px 18px;color:var(--gold-2);font-weight:800;box-shadow:var(--shadow)}
+
+    .services{background:linear-gradient(180deg,#0e1114,#0a0c0f)}
+    .services-head{text-align:center;display:flex;flex-direction:column;align-items:center;margin-bottom:38px}
+    .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .service-card{background:linear-gradient(180deg,rgba(25,30,34,.92),rgba(15,18,21,.95));border:1px solid var(--line-soft);border-radius:16px;padding:25px 21px;min-height:255px;transition:.2s;position:relative;overflow:hidden}
+    .service-card:before{content:"";position:absolute;left:0;top:0;width:3px;height:0;background:var(--gold);transition:.2s}
+    .service-card:hover{transform:translateY(-5px);border-color:var(--line);box-shadow:var(--shadow)}
+    .service-card:hover:before{height:100%}
+    .service-icon{width:52px;height:52px;border-radius:13px;border:1px solid var(--line);display:grid;place-items:center;color:var(--gold-2);font-size:1.5rem;margin-bottom:18px;background:rgba(213,169,79,.04)}
+    .service-card h3{font-size:1.06rem;margin:0 0 10px;line-height:1.25;text-transform:uppercase;letter-spacing:.02em}
+    .service-card p{font-size:.94rem;color:var(--muted);margin:0}
+
+    .about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:58px;align-items:start}
+    .about-panel{background:linear-gradient(145deg,#15191c,#0f1214);border:1px solid var(--line-soft);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+    .benefit-list{display:grid;gap:17px;margin-top:28px}
+    .benefit{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:start;padding-bottom:15px;border-bottom:1px solid var(--line-soft)}
+    .benefit:last-child{border-bottom:0;padding-bottom:0}
+    .benefit .i{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--gold-2);font-weight:900}
+    .benefit h4{margin:1px 0 3px;color:var(--gold-2);text-transform:uppercase;font-size:.9rem;letter-spacing:.04em}
+    .benefit p{margin:0;color:var(--muted);font-size:.94rem}
+    .about-copy p{color:var(--muted);font-size:1.04rem}
+    .mini-points{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+    .mini-point{padding:18px;border:1px solid var(--line-soft);border-radius:14px;background:rgba(255,255,255,.02)}
+    .mini-point strong{display:block;color:var(--gold-2);margin-bottom:5px}
+
+    .contact-strip{padding:0 0 78px}
+    .strip{display:flex;align-items:center;justify-content:space-between;gap:25px;padding:28px 32px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(90deg,rgba(98,69,20,.45),rgba(30,24,15,.55),rgba(12,14,16,.96));box-shadow:var(--shadow)}
+    .strip-left{display:flex;align-items:center;gap:18px}.strip-phone{width:58px;height:58px;border-radius:50%;border:1px solid var(--gold);display:grid;place-items:center;font-size:1.5rem;color:var(--gold-2)}
+    .strip h3{font-size:1.5rem;margin:0 0 3px}.strip p{margin:0;color:var(--muted)}
+
+    .contact{background:#0d1012;border-top:1px solid var(--line-soft)}
+    .contact-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:28px;margin-top:34px}
+    .contact-card,.form-card{background:linear-gradient(145deg,#14181b,#0d1012);border:1px solid var(--line-soft);border-radius:var(--radius);padding:28px}
+    .contact-card h3,.form-card h3{margin-top:0}
+    .contact-item{display:flex;gap:12px;margin:18px 0;color:var(--muted)}
+    .contact-item b{color:var(--text)}
+    .contact-item .dot{color:var(--gold-2);width:22px}
+    .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    label{display:block;font-size:.85rem;font-weight:800;color:#e7e3dc;margin-bottom:6px}
+    input,select,textarea{width:100%;border:1px solid var(--line-soft);background:#090b0d;color:var(--text);padding:13px 14px;border-radius:10px;outline:none}
+    input:focus,select:focus,textarea:focus{border-color:var(--gold)}
+    textarea{min-height:145px;resize:vertical}
+    .full{grid-column:1/-1}
+    .form-note{color:var(--muted);font-size:.82rem;margin:10px 0 0}
+    .form-status{margin-top:12px;color:var(--gold-2);font-weight:700;display:none}
+
+    .legal{padding:56px 0;border-top:1px solid var(--line-soft)}
+    details{border:1px solid var(--line-soft);border-radius:12px;background:#0e1113;margin-bottom:12px;overflow:hidden}
+    summary{cursor:pointer;padding:18px 20px;font-weight:800;color:var(--gold-2)}
+    details .legal-content{padding:0 20px 20px;color:var(--muted)}
+    details h3{color:var(--text);margin-top:24px}
+
+    footer{border-top:1px solid var(--line-soft);padding:38px 0 96px;background:#07090a}
+    .footer-grid{display:grid;grid-template-columns:1.2fr .7fr 1fr;gap:35px}
+    .footer-logo{width:215px;border-radius:10px;margin-bottom:13px}
+    footer p,footer a{color:var(--muted);font-size:.91rem}
+    footer h4{margin:0 0 12px;color:var(--gold-2);text-transform:uppercase;font-size:.82rem;letter-spacing:.08em}
+    .footer-links{display:grid;gap:8px}
+    .copyright{margin-top:28px;padding-top:18px;border-top:1px solid var(--line-soft);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:#858585;font-size:.82rem}
+
+    .mobile-nav{display:none;position:fixed;inset:86px 0 0;background:rgba(8,10,12,.98);z-index:999;padding:26px 4%;border-top:1px solid var(--line)}
+    .mobile-nav.open{display:block}
+    .mobile-nav a{display:block;padding:16px 4px;border-bottom:1px solid var(--line-soft);font-weight:800}
+    .mobile-call{display:none;position:fixed;left:12px;right:12px;bottom:12px;z-index:1100;background:linear-gradient(135deg,#b78934,#f1d084);color:#111;border:1px solid #f1d084;border-radius:13px;padding:14px 18px;text-align:center;font-weight:900;box-shadow:0 12px 34px rgba(0,0,0,.45)}
+
+    @media(max-width:980px){
+      .desktop-nav,.nav-cta{display:none}.menu-btn{display:block}.nav{min-height:76px}.brand img{height:58px;width:130px}.mobile-nav{inset:76px 0 0}
+      .hero{padding-top:56px}.hero-grid{grid-template-columns:1fr}.hero-visual{min-height:auto}.hero-logo-card{max-width:560px;margin:auto}
+      .services-grid{grid-template-columns:repeat(2,1fr)}.about-grid,.contact-grid{grid-template-columns:1fr}.footer-grid{grid-template-columns:1fr 1fr}.mobile-call{display:block}
+    }
+    @media(max-width:640px){
+      .section{padding:66px 0}.hero h1{font-size:3.25rem}.hero-actions .btn{width:100%}.trust-row{gap:14px}.trust-item{width:100%}
+      .hero-logo-card{padding:12px;border-radius:18px}.hero-badge{position:static;margin-top:10px;text-align:center}
+      .services-grid{grid-template-columns:1fr}.service-card{min-height:auto}.mini-points,.form-grid{grid-template-columns:1fr}.full{grid-column:auto}
+      .strip{align-items:flex-start;flex-direction:column;padding:24px}.strip-left{align-items:flex-start}.footer-grid{grid-template-columns:1fr}.contact-card,.form-card{padding:22px}
+      footer{padding-bottom:92px}
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="#start" aria-label="CLE Nova Services Startseite">
+      <img src="logo-cle-nova.png" alt="CLE Nova Services Logo" />
+    </a>
+
+    <nav class="desktop-nav" aria-label="Hauptnavigation">
+      <a href="#start">Start</a>
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ueber-uns">Über uns</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+
+    <a class="btn btn-outline nav-cta" href="#kontakt">Angebot anfragen</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Menü öffnen" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
+  <a href="#start">Start</a>
+  <a href="#leistungen">Leistungen</a>
+  <a href="#ueber-uns">Über uns</a>
+  <a href="#kontakt">Kontakt</a>
+  <a href="#impressum">Impressum</a>
+  <a href="#datenschutz">Datenschutz</a>
+</nav>
+
+<main id="start">
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="section-kicker">Dienstleistungen für Unternehmen & Immobilien</div>
+        <h1>Ein Ansprechpartner.<span>Viele Lösungen.</span></h1>
+        <p class="lead">CLE Nova Services unterstützt Unternehmen, Eigentümer und Gewerbekunden mit zuverlässigen Dienstleistungen rund um Montage, Gebäude, Außenanlagen und Objektservice.</p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#kontakt">✉ Kostenlos anfragen</a>
+          <a class="btn btn-outline" href="#leistungen">Leistungen ansehen →</a>
+        </div>
+        <div class="trust-row">
+          <div class="trust-item"><span class="trust-icon">✓</span> Zuverlässig</div>
+          <div class="trust-item"><span class="trust-icon">⚙</span> Flexibel</div>
+          <div class="trust-item"><span class="trust-icon">●</span> Persönlich</div>
+          <div class="trust-item"><span class="trust-icon">↗</span> Direkte Abstimmung</div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-logo-card">
+          <img src="logo-cle-nova.png" alt="CLE Nova Services" />
+          <div class="hero-badge">Qualität · Vertrauen · Verantwortung</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section services" id="leistungen">
+    <div class="container">
+      <div class="services-head">
+        <div class="section-kicker">Unsere Leistungen</div>
+        <h2 class="section-title">Kompetenz in mehreren Bereichen</h2>
+        <p class="section-intro">Leistungen können individuell oder kombiniert angefragt werden. Der genaue Leistungsumfang wird vor Auftragsbeginn abgestimmt.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon">▣</div>
+          <h3>Montage & Baufertigteile</h3>
+          <p>Montage und Einbau genormter Baufertigteile, einschließlich entsprechender vorgefertigter Bauelemente im Bereich Brandschutz.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">✦</div>
+          <h3>Gebäudereinigung</h3>
+          <p>Reinigungsleistungen für Gewerbeobjekte, Büros, Immobilien und weitere vereinbarte Einsatzbereiche.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">⚙</div>
+          <h3>Hausmeisterservice</h3>
+          <p>Objektkontrollen, Pflege und einfache Servicearbeiten rund um Immobilien, Grundstücke und Gewerbeobjekte.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">⌁</div>
+          <h3>Außenanlagenpflege</h3>
+          <p>Pflege von Grünflächen, Grundstücken, Wegen und Außenbereichen nach individueller Vereinbarung.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">⌂</div>
+          <h3>Entrümpelung & Beräumung</h3>
+          <p>Beräumung von Wohnungen, Gewerbeflächen, Kellern, Lagern, Grundstücken und vergleichbaren Bereichen.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">◫</div>
+          <h3>Außenreinigung</h3>
+          <p>Reinigung von Terrassen, Gehwegen und geeigneten Außenflächen für ein gepflegtes Erscheinungsbild.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">❄</div>
+          <h3>Winterdienst</h3>
+          <p>Räum- und Streuleistungen für Grundstücke, Wege, Zufahrten und Gewerbeflächen nach Vereinbarung.</p>
+        </article>
+
+        <article class="service-card">
+          <div class="service-icon">＋</div>
+          <h3>Weitere Dienstleistungen</h3>
+          <p>Sie benötigen Unterstützung bei einer anderen einfachen Dienstleistung? Sprechen Sie uns an – wir prüfen, ob wir den Auftrag übernehmen können.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ueber-uns">
+    <div class="container about-grid">
+      <div class="about-copy">
+        <div class="section-kicker">Über CLE Nova Services</div>
+        <h2 class="section-title">Ein verlässlicher Partner für Ihr Projekt</h2>
+        <p>CLE Nova Services bündelt verschiedene Dienstleistungen für Unternehmen, Immobilien und Gewerbekunden. Dadurch erhalten Sie für viele Aufgaben einen direkten Ansprechpartner und eine unkomplizierte Abstimmung.</p>
+        <p>Unser Fokus liegt auf klarer Kommunikation, sauberer Ausführung und Leistungen, die passend zum tatsächlichen Bedarf vereinbart werden.</p>
+
+        <div class="mini-points">
+          <div class="mini-point"><strong>Persönlich</strong>Direkter Ansprechpartner statt anonymer Hotline.</div>
+          <div class="mini-point"><strong>Flexibel</strong>Einzelaufträge und wiederkehrende Leistungen möglich.</div>
+          <div class="mini-point"><strong>Transparent</strong>Leistungsumfang wird vorab verständlich abgestimmt.</div>
+          <div class="mini-point"><strong>Vielseitig</strong>Mehrere einfache Dienstleistungen aus einer Hand.</div>
+        </div>
+      </div>
+
+      <div class="about-panel">
+        <div class="benefit-list">
+          <div class="benefit"><div class="i">✓</div><div><h4>Zuverlässigkeit</h4><p>Klare Absprachen und verlässliche Kommunikation rund um den Auftrag.</p></div></div>
+          <div class="benefit"><div class="i">◆</div><div><h4>Qualität</h4><p>Saubere und nachvollziehbare Ausführung innerhalb des vereinbarten Leistungsumfangs.</p></div></div>
+          <div class="benefit"><div class="i">↔</div><div><h4>Kurze Wege</h4><p>Ein Ansprechpartner für Anfrage, Abstimmung und Durchführung.</p></div></div>
+          <div class="benefit"><div class="i">＋</div><div><h4>Erweiterbar</h4><p>Die Website und das Leistungsangebot können jederzeit um weitere Bereiche ergänzt werden.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-strip">
+    <div class="container">
+      <div class="strip">
+        <div class="strip-left">
+          <div class="strip-phone">☎</div>
+          <div><h3>Sie haben ein Projekt oder eine Frage?</h3><p>Kontaktieren Sie CLE Nova Services direkt und unverbindlich.</p></div>
+        </div>
+        <a class="btn btn-gold" href="tel:+4915258140844">Jetzt anrufen →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section contact" id="kontakt">
+    <div class="container">
+      <div class="section-kicker">Kontakt</div>
+      <h2 class="section-title">Projekt unverbindlich anfragen</h2>
+      <p class="section-intro">Nutzen Sie das Formular oder kontaktieren Sie uns direkt per Telefon oder E-Mail.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>CLE Nova Services</h3>
+          <div class="contact-item"><span class="dot">●</span><div><b>Inhaber</b><br>Robby Klarowitz</div></div>
+          <div class="contact-item"><span class="dot">☎</span><div><b>Telefon</b><br><a href="tel:+4915258140844">0152 58140844</a></div></div>
+          <div class="contact-item"><span class="dot">✉</span><div><b>E-Mail</b><br><a href="mailto:robby.klarowitz@web.de">robby.klarowitz@web.de</a></div></div>
+          <div class="contact-item"><span class="dot">⌂</span><div><b>Anschrift</b><br>Albrechtstr. 20<br>39590 Tangermünde</div></div>
+          <p style="color:var(--muted);font-size:.9rem;margin-top:22px">Einsatzgebiet und Termin nach Absprache.</p>
+        </div>
+
+        <form class="form-card" id="contactForm">
+          <h3>Anfrage vorbereiten</h3>
+          <div class="form-grid">
+            <div><label for="name">Name / Firma *</label><input id="name" name="name" required placeholder="Max Mustermann / Muster GmbH"></div>
+            <div><label for="phone">Telefon</label><input id="phone" name="phone" inputmode="tel" placeholder="Ihre Telefonnummer"></div>
+            <div><label for="email">E-Mail *</label><input id="email" name="email" type="email" required placeholder="name@firma.de"></div>
+            <div><label for="service">Leistung</label><select id="service" name="service"><option>Montage & Baufertigteile</option><option>Gebäudereinigung</option><option>Hausmeisterservice</option><option>Außenanlagenpflege</option><option>Entrümpelung & Beräumung</option><option>Außenreinigung</option><option>Winterdienst</option><option>Sonstiges</option></select></div>
+            <div class="full"><label for="message">Ihre Nachricht *</label><textarea id="message" name="message" required placeholder="Beschreiben Sie kurz, worum es geht."></textarea></div>
+            <div class="full"><button class="btn btn-gold" type="submit" style="width:100%">Anfrage per E-Mail senden</button></div>
+          </div>
+          <p class="form-note">Beim Absenden öffnet sich Ihre E-Mail-App mit einer fertig vorbereiteten Nachricht an CLE Nova Services. Die Website selbst speichert die eingegebenen Daten nicht.</p>
+          <div class="form-status" id="formStatus">E-Mail wurde vorbereitet. Falls sich keine App öffnet, schreiben Sie direkt an robby.klarowitz@web.de.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="legal" id="rechtliches">
+    <div class="container">
+      <details id="impressum">
+        <summary>Impressum</summary>
+        <div class="legal-content">
+          <h3>Angaben gemäß § 5 DDG</h3>
+          <p><strong>CLE Nova Services</strong><br>Inhaber: Robby Klarowitz<br>Albrechtstr. 20<br>39590 Tangermünde<br>Deutschland</p>
+          <p><strong>Kontakt</strong><br>Telefon: <a href="tel:+4915258140844">0152 58140844</a><br>E-Mail: <a href="mailto:robby.klarowitz@web.de">robby.klarowitz@web.de</a></p>
+          <p>Falls eine Umsatzsteuer-Identifikationsnummer oder Wirtschafts-Identifikationsnummer vorhanden und veröffentlichungspflichtig ist, sollte sie hier ergänzt werden.</p>
+        </div>
+      </details>
+
+      <details id="datenschutz">
+        <summary>Datenschutzerklärung</summary>
+        <div class="legal-content">
+          <h3>1. Verantwortlicher</h3>
+          <p>CLE Nova Services<br>Inhaber: Robby Klarowitz<br>Albrechtstr. 20<br>39590 Tangermünde<br>Deutschland<br>Telefon: 0152 58140844<br>E-Mail: robby.klarowitz@web.de</p>
+
+          <h3>2. Hosting über GitHub Pages</h3>
+          <p>Diese Website wird über GitHub Pages bereitgestellt. Beim Aufruf der Website können durch den Hosting-Anbieter technisch erforderliche Verbindungsdaten verarbeitet werden, insbesondere IP-Adresse, Datum und Uhrzeit des Zugriffs, aufgerufene Datei, Browser- und Geräteinformationen sowie technische Statusinformationen. Die Verarbeitung erfolgt zur sicheren und zuverlässigen Bereitstellung des Internetangebots.</p>
+
+          <h3>3. Kontaktaufnahme und Formular</h3>
+          <p>Bei Kontaktaufnahme per Telefon oder E-Mail werden die von Ihnen übermittelten Daten zur Bearbeitung der Anfrage verarbeitet. Das Formular auf dieser Website übermittelt keine Daten an einen eigenen Server und speichert die Eingaben nicht. Beim Absenden wird auf Ihrem Gerät eine E-Mail mit den eingegebenen Angaben vorbereitet und Ihre E-Mail-Anwendung geöffnet.</p>
+
+          <h3>4. Cookies, Analyse und externe Dienste</h3>
+          <p>Diese Website verwendet in der aktuellen Version keine eigenen Analyse- oder Marketingtools und lädt keine externen Web-Schriftarten. Es werden durch diese Website keine Marketing- oder Analyse-Cookies gesetzt.</p>
+
+          <h3>5. Speicherdauer</h3>
+          <p>Daten aus Anfragen werden nur so lange verarbeitet bzw. gespeichert, wie dies zur Bearbeitung des Anliegens erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen.</p>
+
+          <h3>6. Ihre Rechte</h3>
+          <p>Sie haben im Rahmen der gesetzlichen Voraussetzungen insbesondere Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Eine erteilte Einwilligung kann mit Wirkung für die Zukunft widerrufen werden.</p>
+
+          <h3>7. Beschwerderecht</h3>
+          <p>Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu beschweren. Für Sachsen-Anhalt ist die Landesbeauftragte für den Datenschutz Sachsen-Anhalt zuständig.</p>
+
+          <h3>8. Stand</h3>
+          <p>Stand: September 2026. Bei späterer Einbindung externer Dienste, Karten, Analysewerkzeuge, Videos, Social-Media-Elemente oder eines serverseitigen Kontaktformulars ist die Datenschutzerklärung entsprechend anzupassen.</p>
+        </div>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <img class="footer-logo" src="logo-cle-nova.png" alt="CLE Nova Services Logo" />
+        <p>CLE Nova Services – Dienstleistungen für Unternehmen, Immobilien und Gewerbe.</p>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <div class="footer-links"><a href="#start">Start</a><a href="#leistungen">Leistungen</a><a href="#ueber-uns">Über uns</a><a href="#kontakt">Kontakt</a></div>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <div class="footer-links"><a href="tel:+4915258140844">0152 58140844</a><a href="mailto:robby.klarowitz@web.de">robby.klarowitz@web.de</a><span style="color:var(--muted)">Albrechtstr. 20, 39590 Tangermünde</span></div>
+      </div>
+    </div>
+    <div class="copyright"><span>© <span id="year"></span> CLE Nova Services</span><span><a href="#impressum">Impressum</a> · <a href="#datenschutz">Datenschutz</a></span></div>
+  </div>
+</footer>
+
+<a class="mobile-call" href="tel:+4915258140844">☎ Jetzt anrufen: 0152 58140844</a>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  const body = document.body;
+
+  menuBtn.addEventListener('click', () => {
+    const open = mobileNav.classList.toggle('open');
+    body.classList.toggle('menu-open', open);
+    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuBtn.textContent = open ? '✕' : '☰';
+  });
+
+  mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    body.classList.remove('menu-open');
+    menuBtn.setAttribute('aria-expanded','false');
+    menuBtn.textContent = '☰';
+  }));
+
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const service = document.getElementById('service').value;
+    const message = document.getElementById('message').value.trim();
+
+    const subject = encodeURIComponent('Anfrage über Website – ' + service);
+    const bodyText = encodeURIComponent(
+      'Name / Firma: ' + name + '\n' +
+      'Telefon: ' + (phone || '-') + '\n' +
+      'E-Mail: ' + email + '\n' +
+      'Gewünschte Leistung: ' + service + '\n\n' +
+      'Nachricht:\n' + message
+    );
+
+    document.getElementById('formStatus').style.display = 'block';
+    window.location.href = 'mailto:robby.klarowitz@web.de?subject=' + subject + '&body=' + bodyText;
+  });
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
