@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b0d0f">
+  <meta name="description" content="CLE Nova Services aus Tangermünde – Hausmeisterservice, Gebäudereinigung, Außenanlagen, Entrümpelung sowie Montage und Einbau genormter Baufertigteile. Regional und deutschlandweit nach Absprache.">
+  <meta name="robots" content="index,follow">
+  <title>CLE Nova Services Tangermünde | Hausmeisterservice & Gebäudereinigung</title>
+  <link rel="canonical" href="https://cle-nova.de/">
+
+  <meta property="og:title" content="CLE Nova Services Tangermünde">
+  <meta property="og:description" content="Zuverlässige Dienstleistungen für Unternehmen, Eigentümer und Gewerbekunden.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cle-nova.de/">
+
+  <style>
+    :root{
+      --bg:#0b0d0f;
+      --bg2:#111417;
+      --panel:#15191d;
+      --text:#f2f2ee;
+      --muted:#a9aba8;
+      --gold:#c5a45c;
+      --gold2:#e0c27b;
+      --line:rgba(255,255,255,.10);
+      --shadow:0 18px 50px rgba(0,0,0,.28);
+      --radius:22px;
+      --max:1160px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at 85% 8%, rgba(197,164,92,.14), transparent 28%),
+        radial-gradient(circle at 0% 35%, rgba(197,164,92,.08), transparent 30%),
+        var(--bg);
+      line-height:1.6;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .container{
+      width:min(calc(100% - 40px),var(--max));
+      margin-inline:auto;
+    }
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:100;
+      backdrop-filter:blur(14px);
+      background:rgba(11,13,15,.86);
+      border-bottom:1px solid var(--line);
+    }
+
+    .nav{
+      min-height:74px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+      letter-spacing:.02em;
+      white-space:nowrap;
+    }
+
+    .brand-mark{
+      width:42px;
+      height:42px;
+      border:1px solid rgba(197,164,92,.45);
+      border-radius:13px;
+      display:grid;
+      place-items:center;
+      color:var(--gold2);
+      font-weight:900;
+      background:linear-gradient(145deg,rgba(197,164,92,.17),rgba(255,255,255,.02));
+    }
+
+    nav ul{
+      display:flex;
+      gap:24px;
+      align-items:center;
+      list-style:none;
+      padding:0;
+      margin:0;
+      color:#d7d7d2;
+      font-size:.95rem;
+    }
+
+    .nav-cta{
+      padding:11px 16px;
+      border-radius:999px;
+      border:1px solid rgba(197,164,92,.5);
+      color:var(--gold2);
+      font-weight:700;
+    }
+
+    .hero{
+      min-height:calc(100vh - 74px);
+      display:grid;
+      align-items:center;
+      padding:72px 0 64px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.12fr .88fr;
+      gap:56px;
+      align-items:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      color:var(--gold2);
+      font-weight:700;
+      font-size:.9rem;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:34px;
+      height:1px;
+      background:var(--gold);
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(3rem,7vw,6.6rem);
+      line-height:.93;
+      letter-spacing:-.055em;
+      max-width:900px;
+    }
+
+    h1 span{color:var(--gold2)}
+
+    .hero-copy{
+      max-width:760px;
+      color:var(--muted);
+      font-size:clamp(1.05rem,1.8vw,1.22rem);
+      margin:28px 0 0;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:32px;
+    }
+
+    .btn{
+      min-height:56px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:9px;
+      padding:0 22px;
+      border-radius:14px;
+      font-weight:800;
+      transition:.2s ease;
+      border:1px solid transparent;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg,var(--gold2),var(--gold));
+      color:#121212;
+      box-shadow:0 12px 30px rgba(197,164,92,.18);
+    }
+
+    .btn-secondary{
+      border-color:rgba(197,164,92,.36);
+      background:rgba(255,255,255,.02);
+    }
+
+    .btn:hover{transform:translateY(-2px)}
+
+    .trust{
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px 28px;
+      margin-top:28px;
+      color:#c9cac6;
+      font-size:.94rem;
+    }
+
+    .trust span::before{
+      content:"✓";
+      color:var(--gold2);
+      margin-right:8px;
+      font-weight:900;
+    }
+
+    .hero-card{
+      background:linear-gradient(160deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card h3{
+      font-size:1.35rem;
+      margin:0 0 20px;
+    }
+
+    .quick-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .quick-item{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.025);
+      border-radius:16px;
+      padding:15px 16px;
+      color:#e2e2dc;
+    }
+
+    section{padding:86px 0}
+
+    .section-head{
+      max-width:760px;
+      margin-bottom:34px;
+    }
+
+    .section-head h2{
+      margin:0 0 14px;
+      font-size:clamp(2rem,4vw,3.4rem);
+      letter-spacing:-.04em;
+    }
+
+    .section-head p{
+      margin:0;
+      color:var(--muted);
+      font-size:1.06rem;
+    }
+
+    .services{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:16px;
+    }
+
+    .service{
+      padding:26px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:linear-gradient(165deg,rgba(255,255,255,.04),rgba(255,255,255,.015));
+      min-height:210px;
+    }
+
+    .service .num{
+      color:var(--gold2);
+      font-size:.83rem;
+      font-weight:800;
+      letter-spacing:.08em;
+    }
+
+    .service h3{
+      margin:18px 0 8px;
+      font-size:1.28rem;
+    }
+
+    .service p{
+      margin:0;
+      color:var(--muted);
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+
+    .about-card{
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--panel);
+      padding:30px;
+    }
+
+    .about-card h3{margin-top:0}
+    .about-card p{color:var(--muted);margin-bottom:0}
+
+    .contact-box{
+      border-radius:28px;
+      padding:42px;
+      background:
+        linear-gradient(135deg,rgba(197,164,92,.16),rgba(255,255,255,.025));
+      border:1px solid rgba(197,164,92,.30);
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:28px;
+      align-items:center;
+    }
+
+    .contact-box h2{
+      margin:0 0 10px;
+      font-size:clamp(2rem,4vw,3.2rem);
+      letter-spacing:-.04em;
+    }
+
+    .contact-box p{
+      margin:0;
+      color:#c9cac5;
+    }
+
+    .contact-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    footer{
+      padding:30px 0 100px;
+      color:#92948f;
+      font-size:.9rem;
+      border-top:1px solid var(--line);
+    }
+
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:18px;
+    }
+
+    /* Mobile CTA: bewusst nicht fixed, damit keine Buttons mehr überlappen */
+    .mobile-cta{
+      display:none;
+    }
+
+    @media (max-width:900px){
+      nav ul{display:none}
+      .hero{min-height:auto;padding:54px 0 56px}
+      .hero-grid{grid-template-columns:1fr;gap:34px}
+      .hero-card{display:none}
+      .services{grid-template-columns:1fr 1fr}
+      .about{grid-template-columns:1fr}
+      .contact-box{grid-template-columns:1fr}
+      .contact-actions{justify-content:flex-start}
+    }
+
+    @media (max-width:640px){
+      .container{width:min(calc(100% - 32px),var(--max))}
+      .nav{min-height:66px}
+      .brand span:last-child{font-size:.96rem}
+      .nav-cta{display:none}
+
+      .hero{
+        padding:44px 0 42px;
+      }
+
+      h1{
+        font-size:clamp(3rem,15vw,4.55rem);
+      }
+
+      .hero-copy{
+        font-size:1.04rem;
+        margin-top:24px;
+      }
+
+      .hero-actions{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:12px;
+        margin-top:28px;
+      }
+
+      .hero-actions .btn{
+        width:100%;
+      }
+
+      .trust{
+        display:grid;
+        gap:9px;
+      }
+
+      section{padding:64px 0}
+
+      .services{grid-template-columns:1fr}
+      .service{min-height:0}
+
+      .contact-box{
+        padding:28px 22px;
+      }
+
+      .contact-actions{
+        display:grid;
+        grid-template-columns:1fr;
+      }
+
+      .contact-actions .btn{
+        width:100%;
+      }
+
+      footer{
+        padding-bottom:28px;
+      }
+
+      /* Keine feste Button-Leiste am unteren Bildschirmrand:
+         dadurch kann nichts mehr über dem Seiteninhalt liegen. */
+      .mobile-cta{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:10px;
+        margin-top:22px;
+      }
+
+      .mobile-cta a{
+        width:100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#start" aria-label="CLE Nova Services Startseite">
+        <span class="brand-mark">CN</span>
+        <span>CLE Nova Services</span>
+      </a>
+
+      <nav aria-label="Hauptnavigation">
+        <ul>
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#ueber-uns">Über uns</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+
+      <a class="nav-cta" href="mailto:info@cle-nova.de">Kostenlos anfragen</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="start">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Tangermünde · Sachsen-Anhalt</div>
+
+          <h1>Ein Ansprechpartner.<br><span>Viele Lösungen.</span></h1>
+
+          <p class="hero-copy">
+            CLE Nova Services aus Tangermünde unterstützt Unternehmen, Eigentümer und
+            Gewerbekunden mit zuverlässigen Dienstleistungen rund um Hausmeisterservice,
+            Gebäudereinigung, Außenanlagen, Entrümpelung sowie Montage und Einbau
+            genormter Baufertigteile. Einsätze erfolgen regional und für passende Projekte
+            deutschlandweit nach Absprache.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:info@cle-nova.de?subject=Anfrage%20über%20cle-nova.de">✉ Kostenlos anfragen</a>
+            <a class="btn btn-secondary" href="#leistungen">Leistungen ansehen →</a>
+          </div>
+
+          <div class="mobile-cta">
+            <a class="btn btn-primary" href="tel:+4915258140844">☎ Jetzt anrufen: 0152 58140844</a>
+          </div>
+
+          <div class="trust">
+            <span>Zuverlässig</span>
+            <span>Direkter Ansprechpartner</span>
+            <span>Flexibel einsetzbar</span>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h3>Unsere Leistungen auf einen Blick</h3>
+          <div class="quick-list">
+            <div class="quick-item">Hausmeisterservice</div>
+            <div class="quick-item">Gebäudereinigung</div>
+            <div class="quick-item">Außenanlagen & Gartenpflege</div>
+            <div class="quick-item">Entrümpelung & Beräumung</div>
+            <div class="quick-item">Montage genormter Baufertigteile</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="leistungen">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Leistungen</div>
+          <h2>Praktische Lösungen für Immobilien und Gewerbe.</h2>
+          <p>
+            Ein Ansprechpartner für wiederkehrende Aufgaben, Einzelaufträge und
+            projektbezogene Unterstützung.
+          </p>
+        </div>
+
+        <div class="services">
+          <article class="service">
+            <div class="num">01</div>
+            <h3>Hausmeisterservice</h3>
+            <p>Unterstützung rund um Objektbetreuung, Kontrollen und laufende Arbeiten.</p>
+          </article>
+
+          <article class="service">
+            <div class="num">02</div>
+            <h3>Gebäudereinigung</h3>
+            <p>Zuverlässige Reinigungsleistungen für gewerblich und betrieblich genutzte Objekte.</p>
+          </article>
+
+          <article class="service">
+            <div class="num">03</div>
+            <h3>Außenanlagen</h3>
+            <p>Pflege und Unterstützung bei Außenflächen, Grundstücken und Grünanlagen.</p>
+          </article>
+
+          <article class="service">
+            <div class="num">04</div>
+            <h3>Entrümpelung</h3>
+            <p>Beräumung und Entrümpelung von Flächen, Räumen und Objekten nach Absprache.</p>
+          </article>
+
+          <article class="service">
+            <div class="num">05</div>
+            <h3>Montagearbeiten</h3>
+            <p>Montage und Einbau genormter Baufertigteile im vereinbarten Leistungsumfang.</p>
+          </article>
+
+          <article class="service">
+            <div class="num">06</div>
+            <h3>Individuelle Projekte</h3>
+            <p>Für passende Aufträge sind nach Absprache auch deutschlandweite Einsätze möglich.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ueber-uns">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">CLE Nova Services</div>
+          <h2>Direkt, flexibel und lösungsorientiert.</h2>
+        </div>
+
+        <div class="about">
+          <div class="about-card">
+            <h3>Regional verwurzelt</h3>
+            <p>
+              Unser Ausgangspunkt ist Tangermünde. Wir betreuen Kunden in der Region und
+              übernehmen bei geeigneten Projekten auch Einsätze überregional.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <h3>Ein Ansprechpartner</h3>
+            <p>
+              Kurze Wege, klare Absprachen und eine unkomplizierte Kommunikation stehen
+              bei jedem Auftrag im Mittelpunkt.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <div class="eyebrow">Kontakt</div>
+            <h2>Projekt oder Auftrag geplant?</h2>
+            <p>Schildern Sie uns kurz, worum es geht. Wir melden uns schnellstmöglich zurück.</p>
+          </div>
+
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="mailto:info@cle-nova.de?subject=Anfrage%20über%20cle-nova.de">✉ info@cle-nova.de</a>
+            <a class="btn btn-secondary" href="tel:+4915258140844">☎ 0152 58140844</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div>© 2026 CLE Nova Services · Tangermünde</div>
+      <div class="footer-links">
+        <a href="mailto:info@cle-nova.de">info@cle-nova.de</a>
+        <a href="tel:+4915258140844">0152 58140844</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
